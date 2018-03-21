@@ -14,7 +14,7 @@ const timer = seconds =>
       } else {
         displayCountdown(secondsLeft);
       }
-    }, 1000);
+    }, 500);
   });
 
 module.exports = {
