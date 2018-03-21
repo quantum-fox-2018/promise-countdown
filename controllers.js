@@ -1,6 +1,8 @@
 const { displayCountdown } = require("./views");
 
 const timer = seconds =>
+  // console.log('ini cont',seconds);
+
   new Promise((resolve, reject) => {
     const now = Date.now();
     const then = now + seconds * 1000;
@@ -15,6 +17,7 @@ const timer = seconds =>
         displayCountdown(secondsLeft);
       }
     }, 1000);
+
   });
 
 module.exports = {
