@@ -10,7 +10,7 @@ const timer = seconds =>
       const secondsLeft = Math.floor((then - Date.now()) / 1000);
       if (secondsLeft < 0) {
         clearInterval();
-        resolve();
+        resolve(secondsLeft);
       } else {
         displayCountdown(secondsLeft);
       }
