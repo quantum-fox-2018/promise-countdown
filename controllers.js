@@ -7,12 +7,22 @@ const timer = seconds =>
 
     displayCountdown(seconds - 1);
     setInterval(() => {
-      const secondsLeft = Math.floor((then - Date.now()) / 1000);
-      if (secondsLeft < 0) {
+      let minute = Math.floor(seconds/60)
+      let secondsLeft = seconds - minute * 60
+      
+      if (seconds < 0) {
         clearInterval();
         resolve();
+        process.exit()
       } else {
-        displayCountdown(secondsLeft);
+        if(minute < 10){
+          minute = '0' + minute
+        }
+        if(secondsLeft < 10){
+          secondsLeft = '0' + secondsLeft
+        }
+        displayCountdown(minute, secondsLeft)
+        seconds--
       }
     }, 1000);
   });
