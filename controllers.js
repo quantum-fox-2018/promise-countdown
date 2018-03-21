@@ -12,7 +12,27 @@ const timer = seconds =>
         clearInterval();
         resolve();
       } else {
-        displayCountdown(secondsLeft);
+
+        let TempSeconds = secondsLeft;
+        let menit = 0;
+        let timeFormat = '00:00';
+
+        while(TempSeconds >= 60){
+          menit += 1;
+          TempSeconds-= 60;
+        }
+
+        if(menit < 60){
+          menit = `0${menit}`;
+        }
+
+        if(TempSeconds < 10){
+          TempSeconds = `0${TempSeconds}`
+        }
+
+        timeFormat = `${menit}:${TempSeconds}`;
+
+        displayCountdown(timeFormat);
       }
     }, 1000);
   });
